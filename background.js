@@ -12,10 +12,14 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
             if (chrome.runtime.lastError) {
               return;
             } else {
-              chrome.tabs.sendMessage(tabs[0].id, {
-                messageId: messageId,
-                url: urlObj.pathname,
-              });
+              chrome.tabs
+                .sendMessage(tabs[0].id, {
+                  messageId: messageId,
+                  url: urlObj.pathname,
+                })
+                .catch((e) => {
+                  console.log(e);
+                });
             }
           }
         );
