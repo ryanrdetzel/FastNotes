@@ -1,0 +1,25 @@
+{
+  "name": "FastNotes",
+  "version": "1.0.0",
+  "description": "fast notes",
+  "manifest_version": 3,
+  "author": "Ryan Detzel",
+  "action":{
+      "default_popup": "index.html",
+      "default_title": ""
+  },
+  "content_scripts": [
+    {
+        "matches":["https://app.fastmail.com/*"],
+        "js": ["script.js"]
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
